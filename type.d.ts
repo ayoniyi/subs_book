@@ -1,5 +1,12 @@
 import type { ImageSourcePropType } from "react-native";
 
+export interface SubscriptionCardProps extends Omit<Subscription, "id"> {
+  expanded: boolean;
+  onPress: () => void;
+  onCancelPress?: () => void;
+  isCancelling?: boolean;
+}
+
 declare global {
   interface AppTab {
     name: string;
@@ -28,12 +35,6 @@ declare global {
     color?: string;
   }
 
-  interface SubscriptionCardProps extends Omit<Subscription, "id"> {
-    expanded: boolean;
-    onPress: () => void;
-    onCancelPress?: () => void;
-    isCancelling?: boolean;
-  }
 
   interface UpcomingSubscription {
     id: string;
